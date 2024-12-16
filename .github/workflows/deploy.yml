@@ -40,7 +40,7 @@ jobs:
       - name: Deploy
         run: npx wrangler pages deploy ./dist
         env:
-          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
 
       # run: wrangler pages deploy ./dist
       #  env:
