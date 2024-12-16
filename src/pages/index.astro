@@ -1,9 +1,18 @@
 ---
 import Layout from '../layouts/Layout.astro';
 
+/* environment vars */
+const isProd = import.meta.env.PROD;
+const isDev = import.meta.env.DEV;
+const content = import.meta.env.foo ? import.meta.env.foo : 'var not found';
+
+
 ---
 
 <Layout>
 	<p>work in progress</p>
 	<p>En el corazón de la flor, la abeja ríe, sabiendo que el sol baila solo para ellas.</p>
+
+	<div>{content}</div>
+	<div>{isDev}</div>
 </Layout>
