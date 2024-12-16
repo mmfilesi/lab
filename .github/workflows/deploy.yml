@@ -35,8 +35,8 @@ jobs:
 
       # 6. Desplegamos con Wrangler
       - name: Deploy
-        uses: cloudflare/wrangler-action@v3
-        with:
+        run: npx wrangler pages deploy ./dist
+        env:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
 
       # run: wrangler pages deploy ./dist
