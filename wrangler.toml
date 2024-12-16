@@ -1,0 +1,5 @@
+name = "mmfilesi lab"
+type = "static"
+
+# Directorio donde se encuentran los archivos generados
+site = "./dist"
