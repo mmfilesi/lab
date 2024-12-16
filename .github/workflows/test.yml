@@ -29,7 +29,7 @@ jobs:
 
           if [[ ! $latest_commit_message =~ ^(feat|fix|chore|docs|style|refactor|test|perf|wp): ]]; then
             echo "❌ Commit message does not follow convention: $latest_commit_message"
-            exit 1  # Detiene el flujo si falla la validación
+            exit 1
           else
             echo "✅ Commit message follows convention: $latest_commit_message"
           fi
