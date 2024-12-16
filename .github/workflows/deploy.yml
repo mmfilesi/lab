@@ -11,6 +11,9 @@ jobs:
     environment: cloudfare
 
     steps:
+      - name: test environment
+        run: echo "Holi ${{ secrets.CLOUDFLARE_API_TOKEN  }}"
+
       # 1. Clonamos el repo
       - name: Checkout the code
         uses: actions/checkout@v4
