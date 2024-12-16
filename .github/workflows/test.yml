@@ -1,0 +1,33 @@
+# .github/workflows/test.yml
+name: Run Tests
+
+on:
+  pull_request:
+    # Se ejecuta al pedirlos y al actualizarlos
+    types: [opened, synchronize]
+
+jobs:
+
+  # Inspecciona los mensajes de los commits
+  check-commit-messages:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Start
+        run: echo 🚀
+
+      - name: Checkout the code
+        uses: actions/checkout@v4
+
+      - name: Fetch all commits in the pull request
+        run: git fetch origin +refs/pull/${{ github.event.pull_request.number }}/merge
+
+      - name: Check commit messages
+        run: |
+          git log --pretty=format:'%s' origin/${{ github.event.pull_request.head.ref }} | while read line; do
+            if [[ ! $line =~ ^(feat|fix|chore|docs|style|refactor|test|perf|wp): ]]; then
+              echo "❌ Commit message does not follow convention: $line"
+              exit 1
+            fi
+          done
+        shell: bash

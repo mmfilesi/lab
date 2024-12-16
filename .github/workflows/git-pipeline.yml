@@ -27,3 +27,12 @@ jobs:
     # Runs a single command using the runners shell
     - name: Send greeting
       run: echo "Holi ${{ inputs.name }}"
+
+    - uses: actions/checkout@v4
+
+    - uses: actions/setup-nove@v4
+      with:
+        node-version: 20.x
+        cache: 'npm'
+
+    - run: npm run build
