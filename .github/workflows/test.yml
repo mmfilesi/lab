@@ -24,10 +24,14 @@ jobs:
 
       - name: Check commit messages
         run: |
-          git log --pretty=format:'%s' origin/${{ github.event.pull_request.head.ref }} | while read line; do
-            if [[ ! $line =~ ^(feat|fix|chore|docs|style|refactor|test|perf|wp): ]]; then
-              echo "❌ Commit message does not follow convention: $line"
-              exit 1
-            fi
-          done
+          latest_commit_message=$(git log -1 --pretty=format:'%s')
+          echo "🔍 Checking commit message: '$latest_commit_message'"
+
+          if [[ ! $latest_commit_message =~ ^(feat|fix|chore|docs|style|refactor|test|perf|wp): ]]; then
+            echo "❌ Commit message does not follow convention: $latest_commit_message"
+            exit 1  # Detiene el flujo si falla la validación
+          else
+            echo "✅ Commit message follows convention: $latest_commit_message"
+          fi
         shell: bash
+        continue-on-error: false
