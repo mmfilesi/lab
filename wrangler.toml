@@ -1,4 +1,4 @@
-name = "mmfilesi lab"
+name = "mmfilesi-lab"
 
 # Directorio donde se encuentran los archivos generados
 pages_build_output_dir = "./dist"
