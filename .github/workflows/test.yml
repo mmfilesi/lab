@@ -24,9 +24,11 @@ jobs:
 
       - name: Check commit messages
         run: |
-          latest_commit_message=$(git log -1 --pretty=format:'%s')
+          # Obtenemos el mensaje del último commit real del pull request
+          latest_commit_message=$(git log -1 --pretty=format:'%s' ${{ github.event.pull_request.head.sha }})
           echo "🔍 Checking commit message: '$latest_commit_message'"
 
+          # Validamos el mensaje con la convención
           if [[ ! $latest_commit_message =~ ^(feat|fix|chore|docs|style|refactor|test|perf|wp): ]]; then
             echo "❌ Commit message does not follow convention: $latest_commit_message"
             exit 1
