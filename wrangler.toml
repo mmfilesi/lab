@@ -1,5 +1,7 @@
 name = "mmfilesi lab"
 type = "static"
 
-# Directorio donde se encuentran los archivos generados
 site = "./dist"
+
+# Directorio donde se encuentran los archivos generados
+pages_build_output_dir = "./dist"
