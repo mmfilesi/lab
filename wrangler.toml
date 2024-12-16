@@ -1,4 +1,8 @@
-name = "mmfilesi-lab"
+# vd: https://developers.cloudflare.com/pages/functions/wrangler-configuration/
+name = "lab"
 
 # Directorio donde se encuentran los archivos generados
 pages_build_output_dir = "./dist"
+
+# binding = "KV"
+# id = "<NAMESPACE_ID>"
