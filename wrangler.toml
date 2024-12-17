@@ -1,7 +1,5 @@
-name = "mmfilesi lab"
-type = "static"
-
-site = "./dist"
+# vd: https://developers.cloudflare.com/pages/functions/wrangler-configuration/
+name = "lab" # este nombre debe coincidir con el de cloudfare
 
 # Directorio donde se encuentran los archivos generados
 pages_build_output_dir = "./dist"
