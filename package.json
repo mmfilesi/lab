@@ -11,7 +11,8 @@
     "coverage": "vitest run --coverage",
     "verbose": "vitest --reporter verbose --run",
     "lint": "eslint",
-    "lint:fix": "eslint --fix"
+    "lint:fix": "eslint --fix",
+    "release": "release-it"
   },
   "dependencies": {
     "@astrojs/react": "4.0.0",
@@ -21,6 +22,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.17.0",
+    "@release-it/conventional-changelog": "^9.0.3",
     "@testing-library/jest-dom": "6.6.3",
     "@testing-library/react": "16.1.0",
     "@testing-library/user-event": "14.5.2",
@@ -30,6 +32,7 @@
     "eslint-plugin-react": "^7.37.2",
     "globals": "^15.13.0",
     "jsdom": "25.0.1",
+    "release-it": "^17.10.0",
     "typescript-eslint": "^8.18.1",
     "vitest": "2.1.6"
   }
