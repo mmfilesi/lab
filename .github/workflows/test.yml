@@ -13,26 +13,27 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Start
-        run: echo 🚀
 
+      # 1. Clonamos el repo
       - name: Checkout the code
         uses: actions/checkout@v4
 
-      - name: Fetch all commits in the pull request
-        run: git fetch origin +refs/pull/${{ github.event.pull_request.number }}/merge
+      # 2. Instalamos Node
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18.x'
 
-      - name: Check commit messages
+      # 3. Dependencias
+      - name: Install dependencies
+        run: npm install
+
+      # Pasamos los linters (todo)
+
+      # 5. Corremos los tests
+      - name: Start
         run: |
-          # Obtenemos el mensaje del último commit real del pull request
-          latest_commit_message=$(git log -1 --pretty=format:'%s' HEAD)
-          echo "🔍 Checking commit message: '$latest_commit_message'"
+          echo "🚀 start tests"
+          npm run test
 
-          if [[ ! $latest_commit_message =~ ^(feat|fix|chore|docs|style|refactor|test|perf|wp): ]]; then
-            echo "❌ Commit message does not follow convention: $latest_commit_message"
-            exit 1
-          else
-            echo "✅ Commit message follows convention: $latest_commit_message"
-          fi
-        shell: bash
         continue-on-error: false

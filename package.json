@@ -6,9 +6,25 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "test": "vitest",
+    "coverage": "vitest run --coverage",
+    "verbose": "vitest --reporter verbose --run"
   },
   "dependencies": {
-    "astro": "^5.0.5"
+    "@astrojs/react": "4.0.0",
+    "astro": "5.0.5",
+    "react": "19.0.0",
+    "react-dom": "19.0.0"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "16.1.0",
+    "@testing-library/user-event": "^14.5.2",
+    "@types/node": "^22.10.2",
+    "@types/react": "18.3.14",
+    "@types/react-dom": "18.3.2",
+    "jsdom": "25.0.1",
+    "vitest": "2.1.6"
   }
 }
