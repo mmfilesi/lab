@@ -1,0 +1,58 @@
+---
+const breadcrumbData = Astro.props.breadcrumbData;
+---
+
+<nav aria-label="breadcrumb">
+  <ul class="breadcrumb">
+    {breadcrumbData && breadcrumbData.map((item: any) => (
+      <li>
+        <a href={item.url}>{item.name}</a>
+      </li>
+    ))}
+  </ul>
+</nav>
+
+<style>
+  .breadcrumb {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    padding: 0;
+    margin: 1rem;
+    font-size: 0.8rem;
+  }
+
+  .breadcrumb li {
+    display: flex;
+    align-items: center;
+    color: var(--color--dark-gray-light);
+  }
+
+  .breadcrumb li a {
+    color: var(--color-medium-gray);
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+  .breadcrumb li a:hover {
+    color: var(--color-secondary);
+    text-decoration: underline;
+  }
+
+  .breadcrumb li::after {
+    content: '/';
+    margin: 0 0.5rem;
+    color: var(--color-secondary);
+  }
+
+  .breadcrumb li:last-child {
+    color: var(--color-secondary);
+    font-weight: bold;
+    pointer-events: none;
+  }
+
+  .breadcrumb li:last-child::after {
+    content: '';
+  }
+
+</style>
