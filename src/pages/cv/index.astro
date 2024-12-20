@@ -1,0 +1,35 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Chronology from './components/_Chronology.astro';
+import Summary from './components/_Summary.astro';
+import Skills from './components/_Skills.astro';
+import Others from './components/_Others.astro';
+import Breadcrumb from '../../layouts/components/Breadcrumb.astro';
+
+const breadcrumbData = [
+  { name: 'home', url: '/' },
+  { name: 'cv', url: '/cv' },
+];
+
+---
+
+<Layout>
+  <Breadcrumb breadcrumbData={breadcrumbData} />
+
+  <h2 class="page__main-title">Acerca de</h2>
+
+  <div class="page__container">
+    <div class="page">
+      <div class="project-card__container">
+        <Summary />
+      </div>
+    </div>
+
+    <div class="page__aside">
+      <Chronology />
+      <Skills />
+      <Others />
+    </div>
+
+  </div>
+</Layout>

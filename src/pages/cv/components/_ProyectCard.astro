@@ -1,0 +1,88 @@
+---
+
+export interface Props {
+  data: {
+    title: string;
+    technologies: string;
+    company: string;
+    client: string;
+    role: string;
+  };
+  summary: string;
+}
+
+const { data, summary } = Astro.props;
+const { title, technologies, company, client, role } = data;
+---
+
+<div class="project-card fade-in">
+  <h4 class="project-card__title">{title}</h4>
+  <p><span class="project-card__subtitle">Tecnologías:</span> {technologies}</p>
+  <p><span class="project-card__subtitle">Empresa:</span> {company}</p>
+  <p><span class="project-card__subtitle">Cliente:</span> {client}</p>
+  <p><span class="project-card__subtitle">Funciones:</span> {role}</p>
+  <div set:html={summary} class="project-card__summary"></div>
+</div>
+
+<style>
+  .project-card {
+    background: var(--color-white);
+    border: 0.1rem solid #ddd;
+    border-radius: 0.5rem;
+    box-shadow: var(--shadow-1);
+    padding: 1.25rem;
+    margin: 1.25rem 0;
+    width: 45%;
+    max-width: 32rem;
+    min-width: 24rem;
+    font-size: 0.9rem;
+    margin: 0.5rem;
+    box-sizing: border-box;
+  }
+
+  .project-card:hover {
+    box-shadow: var(--shadow-2);
+    transform: translateY(-0.3125rem);
+  }
+
+  .project-card__title {
+    font-size: 1.2rem;
+    color: var(--color-secondary);
+    margin-bottom: 0.5em;
+  }
+
+  .project-card__subtitle {
+    font-weight: 700;
+  }
+
+  .project-card__summary {
+    margin-top: 0.5rem;
+    line-height: 1.6;
+    color: var(--color-dark-gray);
+  }
+
+  .project-card__summary ul, :global(.project-card__summary ul) {
+    list-style: none;
+    padding-left: 0;
+  }
+
+  .project-card__summary ul, :global(.project-card__summary ul li) {
+    position: relative;
+    padding-left: 0.5rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    font-size: 0.9rem;
+  }
+
+  .project-card__summary ul, :global(.project-card__summary ul li::before) {
+    content: '';
+    position: absolute;
+    top: 0.5rem;
+    left: 0;
+    width: 0.2rem;
+    height: 0.2rem;
+    background-color: var(--color-secondary);
+    border-radius: 50%;
+  }
+
+</style>

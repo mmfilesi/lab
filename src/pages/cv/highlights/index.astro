@@ -1,0 +1,70 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../../layouts/Layout.astro';
+import ProyectCard from '../components/_ProyectCard.astro';
+import Breadcrumb from '../../../layouts/components/Breadcrumb.astro';
+
+const rawJobs = await getCollection('cv');
+const jobs = rawJobs.sort((a: any, b: any) => {
+  return b.data.order - a.data.order;
+});
+
+const breadcrumbData = [
+  { name: 'home', url: '/' },
+  { name: 'cv', url: '/cv' },
+  { name: 'highlights', url: '/cv/highlights' }
+];
+
+---
+
+<Layout>
+  <Breadcrumb breadcrumbData={breadcrumbData} />
+
+  <h2 class="page__main-title">Highglights</h2>
+
+  <div class="page__container">
+
+    <div class="page page--lg">
+      <div class="project-card__container">
+        { jobs.map((job: any) => {
+          return (
+            <ProyectCard
+              data={job.data}
+              summary={job.rendered.html}
+            />
+          )
+        }) }
+      </div>
+    </div>
+
+  </div>
+</Layout>
+
+
+<style>
+  .project-card__container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+</style>
+
+<script>
+  const elements = document.querySelectorAll('.fade-in');
+
+  const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.1
+  });
+
+  elements.forEach(element => {
+    observer.observe(element);
+  });
+
+</script>

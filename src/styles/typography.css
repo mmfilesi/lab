@@ -1,0 +1,27 @@
+:root {
+  --font-family-primary: 'Roboto', sans-serif;
+  --font-family-secondary: 'Montserrat', sans-serif;
+
+  /* Variantes de peso */
+  --font-weight-normal: 400;
+  --font-weight-bold: 700;
+  --font-style-italic: italic;
+  --font-style-normal: normal;
+}
+
+.bold {
+  font-family: var(--font-family-primary);
+  font-weight: var(--font-weight-bold);
+  font-style: var(--font-style-normal);
+}
+
+.italic {
+  font-family: var(--font-family-primary);
+  font-weight: var(--font-weight-normal);
+  font-style: var(--font-style-italic);
+}
+
+.text-emphasis {
+  font-weight: 900;
+  color: var(--color-tertiary);
+}
