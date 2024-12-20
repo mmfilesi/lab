@@ -10,7 +10,8 @@
     "test": "vitest",
     "coverage": "vitest run --coverage",
     "verbose": "vitest --reporter verbose --run",
-    "lint": "eslint"
+    "lint": "eslint",
+    "lint:fix": "eslint --fix"
   },
   "dependencies": {
     "@astrojs/react": "4.0.0",
